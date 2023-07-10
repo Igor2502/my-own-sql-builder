@@ -5,9 +5,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest --config jest.config.mjs",
-    "test:cov": "NODE_OPTIONS=--experimental-vm-modules npx jest --config jest.config.mjs --coverage",
-    "test:watch": "NODE_OPTIONS=--experimental-vm-modules npx jest --config jest.config.mjs --watchAll"
+    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest --config jest.config.mjs --runInBand",
+    "test:cov": "NODE_OPTIONS=--experimental-vm-modules npx jest --config jest.config.mjs --coverage --runInBand",
+    "test:watch": "NODE_OPTIONS=--experimental-vm-modules npx jest --config jest.config.mjs --watchAll --runInBand"
   },
   "keywords": [],
   "author": "",
