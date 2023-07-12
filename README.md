@@ -9,7 +9,7 @@ In this project, some custom commands that are widely used to manipulate data th
 
  - ✔️ Limit the number of results given a value;
  - ✔️ Filter the results given a condition;
- - ✔️ Sort the results given a field name;
+ - ❌ Sort the results given a field name (considering string, number and date types);
  - ✔️ Return only selected fields;
  - ✔️ Reaches **100% code coverage**
 
