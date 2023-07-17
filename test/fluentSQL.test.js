@@ -127,6 +127,7 @@ describe('Test Suite for FluentSQL Builder', () => {
 
     expect(result).toStrictEqual(expected)
   })
+  test.todo('#from given a collection it should return only selected table')
 
   test('pipeline', () => {
     const result = FluentSQLBuilder.for(data)
