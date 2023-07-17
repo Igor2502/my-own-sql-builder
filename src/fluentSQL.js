@@ -69,7 +69,16 @@ export default class FluentSQLBuilder {
     if (!this.#orderBy) return results
 
     return results.sort((prev, next) => {
-      return prev[this.#orderBy].localeCompare(next[this.#orderBy])
+      switch (typeof prev[this.#orderBy]) {
+        case 'string':
+          return prev[this.#orderBy].localeCompare(next[this.#orderBy])
+        case 'object':
+          if (prev[this.#orderBy] instanceof Date) {
+            return prev[this.#orderBy] < next[this.#orderBy] ? -1 : 1
+          }
+        default:
+          1;
+      }
     })
   }
 

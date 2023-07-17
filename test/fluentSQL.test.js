@@ -5,17 +5,20 @@ const data = [
   {
     id: 0,
     name: 'igorgomes',
-    category: 'developer'
+    category: 'developer',
+    created_at: new Date('2023-02-11')
   },
   {
     id: 1,
     name: 'mariazinha',
-    category: 'developer'
+    category: 'developer',
+    created_at: new Date('2022-10-04')
   },
   {
     id: 2,
     name: 'joaozin',
-    category: 'manager'
+    category: 'manager',
+    created_at: new Date('2023-07-17')
   },
 ]
 
@@ -49,23 +52,76 @@ describe('Test Suite for FluentSQL Builder', () => {
 
     expect(result).toStrictEqual(expected)
   })
-  test('#orderBy given a collection it should order results by field', () => {
+  test('#orderBy given a collection it should order results by string field', () => {
     const result = FluentSQLBuilder.for(data).orderBy('name').build()
     const expected = [
       {
         id: 0,
         name: 'igorgomes',
-        category: 'developer'
+        category: 'developer',
+        created_at: new Date('2023-02-11')
       },
       {
         id: 2,
         name: 'joaozin',
-        category: 'manager'
+        category: 'manager',
+        created_at: new Date('2023-07-17')
       },
       {
         id: 1,
         name: 'mariazinha',
-        category: 'developer'
+        category: 'developer',
+        created_at: new Date('2022-10-04')
+      },
+    ]
+
+    expect(result).toStrictEqual(expected)
+  })
+  test('#orderBy given a collection it should order results by date field', () => {
+    const result = FluentSQLBuilder.for(data).orderBy('created_at').build()
+    const expected = [
+      {
+        id: 1,
+        name: 'mariazinha',
+        category: 'developer',
+        created_at: new Date('2022-10-04')
+      },
+      {
+        id: 0,
+        name: 'igorgomes',
+        category: 'developer',
+        created_at: new Date('2023-02-11')
+      },
+      {
+        id: 2,
+        name: 'joaozin',
+        category: 'manager',
+        created_at: new Date('2023-07-17')
+      },
+    ]
+
+    expect(result).toStrictEqual(expected)
+  })
+  test('#orderBy given a collection it should order results by number field', () => {
+    const result = FluentSQLBuilder.for(data).orderBy('id').build()
+    const expected = [
+      {
+        id: 0,
+        name: 'igorgomes',
+        category: 'developer',
+        created_at: new Date('2023-02-11')
+      },
+      {
+        id: 1,
+        name: 'mariazinha',
+        category: 'developer',
+        created_at: new Date('2022-10-04')
+      },
+      {
+        id: 2,
+        name: 'joaozin',
+        category: 'manager',
+        created_at: new Date('2023-07-17')
       },
     ]
 
