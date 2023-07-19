@@ -4,6 +4,7 @@ export default class FluentSQLBuilder {
   #select = []
   #where = []
   #orderBy = ''
+  #from = ''
 
   constructor({ database }) {
     this.#database = database
@@ -38,6 +39,12 @@ export default class FluentSQLBuilder {
 
   orderBy(field) {
     this.#orderBy = field
+
+    return this
+  }
+
+  from(table) {
+    this.#from = table
 
     return this
   }
@@ -82,9 +89,15 @@ export default class FluentSQLBuilder {
     })
   }
 
+  #performFrom() {
+    return this.#from !== ''
+      ? this.#database[this.#from]
+      : this.#database
+  }
+
   build() {
     const results = []
-    for (const item of this.#database) {
+    for (const item of this.#performFrom()) {
       if (!this.#performWhere(item)) continue
 
       const currentItem = this.#performSelect(item)

@@ -11,8 +11,8 @@ In this project, some custom commands that are widely used to manipulate data th
  - ✔️ Filter the results given a condition;
  - ✔️ Sort the results given a field name (considering string, number and date types);
  - ✔️ Return only selected fields;
- - ❌ Return only records from the selected table
- - ❌ Reaches **100% code coverage**
+ - ✔️ Return only records from the selected table
+ - ✔️ Reaches **100% code coverage**
 
 
 ## Credits
